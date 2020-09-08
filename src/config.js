@@ -28,7 +28,7 @@ export default {
     {
       label: 'Production Environment',
       type: 'production',
-      url: 'http://103.20.249.82:18901',
+      url: 'http://192.168.188.159:3721',
     },
   ],
 }

@@ -11,8 +11,9 @@ export default class MyScreen extends Component {
           <List
             flat={true}
             data={[
+              // MyHomeSetting
               { title: '企业开票' },
-              { title: '我的熟车' },
+              { title: '我的熟车', onPress: () => navigation.navigate('MyHomeCub')  },
               { title: '设置', onPress: () => navigation.navigate('MyHomeSetting')  },
               { title: '退出登录', onPress: () => navigation.replace('SignIn') },
             ]}

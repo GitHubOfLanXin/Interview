@@ -2,6 +2,8 @@ import Home from '../pages/Home';
 import SignIn from '../pages/SignIn';
 import DevOptions from '../pages/DevOptions';
 import MyHomeSetting from '../pages/MyHome/Setting';
+import MyHomeCub from '../pages/MyHome/Cub/index.js'
+
 
 export const stackPageData = [
   {
@@ -26,6 +28,13 @@ export const stackPageData = [
     options: {
       headerShown: false,
       header: () => null
+    }
+  },
+  {
+    name: "MyHomeCub",
+    component: MyHomeCub,
+    options: {
+        title: '我的熟车',
     }
   },
   {
