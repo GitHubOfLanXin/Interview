@@ -3,6 +3,8 @@ import { Icon } from '@uiw/react-native';
 import MyHome from '../pages/MyHome';
 import OrderHome from '../pages/OrderHome';
 import TransportHome from '../pages/TransportHome';
+import ShoppingCart from '../pages/ShoppingCart';
+
 
 export default [
   {
@@ -10,6 +12,16 @@ export default [
     component: TransportHome,
     options: {
       title: '发货',
+      tabBarIcon: () => {
+        return <Icon name='inbox' size={22} />;
+      },
+    }
+  },
+  {
+    name: "ShoppingCart",
+    component: ShoppingCart,
+    options: {
+      title: '购物车',
       tabBarIcon: () => {
         return <Icon name='inbox' size={22} />;
       },

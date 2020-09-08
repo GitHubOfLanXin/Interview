@@ -2,7 +2,9 @@ import Home from '../pages/Home';
 import SignIn from '../pages/SignIn';
 import DevOptions from '../pages/DevOptions';
 import MyHomeSetting from '../pages/MyHome/Setting';
-import MyHomeCub from '../pages/MyHome/Cub/index.js'
+import MyHomeCub from '../pages/MyHome/Cub/index.js';
+import ShoppingCartDown from '../pages/ShoppingCart/Down';
+import ShoppingCartUp from '../pages/ShoppingCart/Up'
 
 
 export const stackPageData = [
@@ -28,6 +30,20 @@ export const stackPageData = [
     options: {
       headerShown: false,
       header: () => null
+    }
+  },
+  {
+    name: "ShoppingCartUp",
+    component: ShoppingCartUp,
+    options: {
+        title: '我是楼下',
+    }
+  },
+  {
+    name: "ShoppingCartDown",
+    component: ShoppingCartDown,
+    options: {
+        title: '我是楼下',
     }
   },
   {
