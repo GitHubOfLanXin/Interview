@@ -1,6 +1,6 @@
 import { Alert } from 'react-native';
 import AsyncStorage from '@react-native-community/async-storage';
-import { userLogin } from '../services/users';
+import { userLogin, shopinglist } from '../services/users';
 import Global from '../global';
 
 export default {
@@ -11,6 +11,15 @@ export default {
       username: 'admin',
       password: 'admin!',
     },
+    listdata: [
+      {title:"一"},
+      {title:"二"},
+      {title:"三"},
+      {title:"四"},
+      {title:"五"},
+      {title:"1"},
+      {title:"七"},
+    ],
   },
   reducers: {
     update: (state, payload) => ({ ...state, ...payload }),
@@ -18,6 +27,7 @@ export default {
       ...state,
       formData: { ...state.formData, ...payload },
     }),
+    listdata:[]
   },
   effects: dispatch => ({
     // 登录
@@ -25,6 +35,8 @@ export default {
       const data = await userLogin(users.formData);
       if (data && data.token && data.data) {
         await AsyncStorage.setItem('token', data.token);
+        
+
         // Cache username and password
         if (users.remember) {
           await AsyncStorage.setItem('cachLoginName', users.formData.loginName);
@@ -48,5 +60,10 @@ export default {
       dispatch.users.update({ userData: null });
       Global.navigation.navigate('SignIn');
     },
+    async getlist(_,{users,global}) {
+      const l = await shopinglist(users.listdata);
+      console.log('哈哈哈',l)
+      await AsyncStorage.setItem('l');
+    }
   }),
 };

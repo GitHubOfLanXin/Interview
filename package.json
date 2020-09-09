@@ -8,6 +8,10 @@
     "start": "react-native start --reset-cache",
     "test": "jest",
     "api": "mocker ./mocker",
+    
+    "mapi": "mocker ./moc",
+
+
     "api2": "NO_PROXY=true mocker ./mocker",
     "prettier": "prettier --write '**/*.{js,jsx,tsx,ts,less,md,json}'",
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx"

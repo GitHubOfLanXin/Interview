@@ -1,40 +1,42 @@
 import React, { Component } from 'react';
-import { View, Text, SafeAreaView } from 'react-native';
-import { Button, List, Icon } from '@uiw/react-native';
+import { connect } from 'react-redux';
+import AsyncStorage from '@react-native-community/async-storage';
+import { TextInput, SafeAreaView, StyleSheet, StatusBar, Text } from 'react-native';
+import { Button, H4, Flex, Spacing, P, Icon, CheckBox, Badge,View } from '@uiw/react-native';
 
-export default class MyScreen extends Component {
+import Global from '../../global';
+import Footer from '../../components/Footer';
+import { logoLight } from '../../components/icons/signin';
+import conf from '../../config'
+class ShopingCart extends Component {
+  state = {
+    hostType: ''
+  }
+  arr = [1, 2, 3, 4, 5, 5]
   render() {
-    const { navigation } = this.props;
+    const { listdata, } = this.props;
+
     return (
-      <SafeAreaView style={{flex:1}}>
-        <View style={{flex:1}}>
-          <List
-            flat={true}
-            data={[
-              // MyHomeSetting
-              { title: '点击楼层进如相应的楼' },
-              { title: '一楼', onPress: () => navigation.navigate('ShoppingCartUp')  },
-              { title: '二楼', onPress: () => navigation.navigate('ShoppingCartDown')  },
-            ]}
-            renderItem={({ item, index }) => {
-              return (
-                <List.Item
-                  key={index}
-                  extra={<Icon name="right" fill="#abb0b5" size={14} />}
-                  size="large"
-                  paddingLeft={15}
-                  style={{ borderBottomWidth: 0, }}
-                  onPress={item.onPress || null}
-                >
-                  <View>
-                    <Text>{item.title}</Text>
-                  </View>
-                </List.Item>
-              )
-            }}
-          />
-        </View>
+      <SafeAreaView>
+        {listdata.map((item) => {
+          return (
+          <Text>{item.title}</Text>
+          )
+        })}
+        <Text>{listdata[0].title}</Text>
       </SafeAreaView>
     );
   }
 }
+
+
+export default connect(
+  ({ users }) => ({
+    listdata: users.listdata,
+  }),
+  ({ users }) => ({
+    getlist: users.getlist,
+  }),
+)(ShopingCart);
+
+

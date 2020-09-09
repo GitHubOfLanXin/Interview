@@ -23,7 +23,14 @@ export async function userLogin(params) {
  * logout
  */
 export async function userLogout(params) {
-  return fetch('/api/logout', {
+  return fetch('/api/shop', {
+    body: params,
+  });
+}
+
+export async function shopinglist(params) {
+  return fetch('/api/login', {
+    // method: 'GET',
     body: params,
   });
 }

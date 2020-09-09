@@ -16,7 +16,6 @@ export default {
   },
   effects: dispatch => ({
     async authToken(_, { global }) {
-
       let host = await AsyncStorage.getItem('apihost');
       if (!host && conf.hosts[0]) {
         await AsyncStorage.setItem('apihost', JSON.stringify(conf.hosts[0]));

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import AsyncStorage from '@react-native-community/async-storage';
 import { TextInput, SafeAreaView, StyleSheet, StatusBar, Text } from 'react-native';
-import { Button, H4, Flex, Spacing, P, Icon, CheckBox, Badge } from '@uiw/react-native';
+import { Button, H4, Flex, Spacing, P, Icon, CheckBox, Badge,View } from '@uiw/react-native';
 
 import Global from '../../global';
 import Footer from '../../components/Footer';
@@ -26,7 +26,11 @@ class SigninScreen extends Component {
   };
   onChangeUserName = text => this.props.updateForm({ username: text });
   onChangePassWord = text => this.props.updateForm({ password: text });
-  onSubmit = () => this.props.login();
+  onSubmit = () => {
+    this.props.login()
+    this.props.getlist()
+    // console.log( res.status(200))
+  };
 
 
   _getHostType = async () => {
@@ -42,7 +46,7 @@ class SigninScreen extends Component {
   }
 
   render() {
-    const { formData, loading } = this.props;
+    const { formData, loading, } = this.props;
     const { hostType } = this.state;
     return (
       <SafeAreaView style={styles.block}>
@@ -54,7 +58,6 @@ class SigninScreen extends Component {
             </Button>
           </Flex>
         }
-
         <Flex align="center" direction="column" style={{ flex: 1 }}>
           <Flex justify="center" align="center" direction="column" style={styles.header}>
             <Icon xml={logoLight} size={75} />
@@ -114,6 +117,7 @@ export default connect(
     login: users.login,
     update: users.update,
     updateForm: users.updateForm,
+    shopinglist: users.shopinglist
   }),
 )(SigninScreen);
 
