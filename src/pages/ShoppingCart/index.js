@@ -18,12 +18,12 @@ class ShopingCart extends Component {
 
     return (
       <SafeAreaView>
-        {listdata.map((item) => {
+        {listdata.map((item,index) => {
           return (
-          <Text>{item.title}</Text>
+          <Text key = {index}>{item.title}</Text>
           )
         })}
-        <Text>{listdata[0].title}</Text>
+        {/* <Text>{listdata[0].title}</Text> */}
       </SafeAreaView>
     );
   }

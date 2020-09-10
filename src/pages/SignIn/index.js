@@ -117,7 +117,7 @@ export default connect(
     login: users.login,
     update: users.update,
     updateForm: users.updateForm,
-    shopinglist: users.shopinglist
+    getlist: users.getlist
   }),
 )(SigninScreen);
 

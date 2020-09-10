@@ -29,8 +29,7 @@ export async function userLogout(params) {
 }
 
 export async function shopinglist(params) {
-  return fetch('/api/login', {
-    // method: 'GET',
+  return fetch('/api/shop', {
     body: params,
   });
 }

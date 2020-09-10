@@ -10,9 +10,14 @@ export default {
     authState: false,
     token: null,
     apihost: null,
+    listdata:[]
   },
   reducers: {
     update: (state, payload) => ({ ...state, ...payload }),
+    listdataF: (state, payled) => ({
+      ...state,
+      listdata:[ ...state.listdata, ...payled]
+    })
   },
   effects: dispatch => ({
     async authToken(_, { global }) {
